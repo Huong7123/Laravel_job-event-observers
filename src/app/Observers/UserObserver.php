@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Log;
 class UserObserver
 {
     /**
+     * Handle the User "creating" event.
+     */
+    public function creating(User $user): void
+    {
+        $user->sign = \Illuminate\Support\Str::random(60);
+    }
+
+    /**
      * Handle the User "created" event.
      */
     public function created(User $user): void
